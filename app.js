@@ -20,15 +20,24 @@ const fruit = new Fruit({
 
 const personSchema = new mongoose.Schema({
     name: String,
-    age: Number
+    age: Number,
+    favouriteFruit: fruitSchema
 });
 
 const Person = mongoose.model("Person", personSchema);
 
-const person = new Person({
-    name:"Jack Reacher",
-    age: 37
+const dragonFruit = new Fruit({
+    name: "Dragon Fruit",
+    rating: 8,
+    review:"Buget mai nhai hai Bro."
 })
+// dragonFruit.save()
+const person = new Person({
+    name:"Dua Lipa",
+    age: 23,
+    favouriteFruit: dragonFruit,
+})
+// person.save()
 const kiwi = new Fruit({ 
     name: 'Kiwi',
     rating:9,
@@ -90,3 +99,10 @@ Fruit.find(function(err, fruits){
 //         console.log("Bye Apple")
 //     }
 // })
+Person.updateOne({name:"Jack Reacher"}, {favouriteFruit:orange}, function(err){
+    if (err){
+        console.log(err)
+    }else{
+        console.log("Updated Jack Reacher")
+    }
+})
