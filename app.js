@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/fruitsDB');
 
 const fruitSchema = new mongoose.Schema({
-    name:String,
+    name: {
+        type: String,
+        required: true
+    },
     rating: Number,
     review: String
 });
@@ -41,21 +44,29 @@ const orange = new Fruit({
     rating:7,
     review:"Love and Hate"
 });
+const peach = new Fruit({ 
+    rating:10,
+    review:"Never ate so."
+});
+
 
 // person.save()
 
-// Fruit.insertMany([kiwi, jackFruit, orange], function(err){
-//     if (err){
-//         console.log(err);
-//     }else{
-//         console.log("succes")
-//     }
-// });
+Fruit.insertMany([peach], function(err){
+    if (err){
+        console.log(err);
+    }else{
+        console.log("succes")
+    }
+});
 
 Fruit.find(function(err, fruits){
     if (err){
         console.log(err);
     }else{
-        console.log(fruits)
+        console.log(fruits);
+        fruits.forEach(function(fruit){
+            console.log(fruit.name)
+        })
     }
 })
