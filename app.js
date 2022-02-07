@@ -44,21 +44,17 @@ const orange = new Fruit({
     rating:7,
     review:"Love and Hate"
 });
-const peach = new Fruit({ 
-    rating:10,
-    review:"Never ate so."
-});
 
-
+// fruit.save()
 // person.save()
 
-Fruit.insertMany([peach], function(err){
-    if (err){
-        console.log(err);
-    }else{
-        console.log("succes")
-    }
-});
+// Fruit.insertMany([peach], function(err){
+//     if (err){
+//         console.log(err);
+//     }else{
+//         console.log("succes")
+//     }
+// });
 
 Fruit.find(function(err, fruits){
     if (err){
@@ -70,3 +66,27 @@ Fruit.find(function(err, fruits){
         })
     }
 })
+
+// Fruit.updateMany({_id:"62016627a6d630466c860386"}, {name:"Peach"}, function(err){
+//     if (err){
+//         console.log(err);
+//     }else{
+//         console.log("Hui")
+//     }
+// })
+
+// Fruit.deleteOne({_id:"620167907ba42eb62ecbc436"},function(err){
+//     if (err){
+//         console.log(err);
+//     }else{
+//         console.log("HUI")
+//     }
+// })
+
+// Fruit.deleteMany({name:"Apple"},function(err){
+//     if (err){
+//         console.log(err);
+//     }else{
+//         console.log("Bye Apple")
+//     }
+// })
