@@ -44,10 +44,18 @@ const orange = new Fruit({
 
 // person.save()
 
-Fruit.insertMany([kiwi, jackFruit, orange], function(err){
+// Fruit.insertMany([kiwi, jackFruit, orange], function(err){
+//     if (err){
+//         console.log(err);
+//     }else{
+//         console.log("succes")
+//     }
+// });
+
+Fruit.find(function(err, fruits){
     if (err){
         console.log(err);
     }else{
-        console.log("succes")
+        console.log(fruits)
     }
-});
+})
