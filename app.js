@@ -26,22 +26,28 @@ const person = new Person({
     name:"Jack Reacher",
     age: 37
 })
-const fruit = new Fruit({ 
+const kiwi = new Fruit({ 
     name: 'Kiwi',
     rating:9,
     review:"God"
 });
-const fruit = new Fruit({ 
+const jackFruit = new Fruit({ 
     name: 'Jack Fruit',
     rating:1,
     review:"🤮"
 });
-const fruit = new Fruit({ 
+const orange = new Fruit({ 
     name: 'Orange',
     rating:7,
     review:"Love and Hate"
 });
 
-person.save()
+// person.save()
 
-// fruit.save();
+Fruit.insertMany([kiwi, jackFruit, orange], function(err){
+    if (err){
+        console.log(err);
+    }else{
+        console.log("succes")
+    }
+});
